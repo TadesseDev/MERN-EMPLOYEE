@@ -1,9 +1,11 @@
 import React from 'react'
+import { useDispatch} from 'react-redux'
 import {EmployeeEdit} from '../components/ListEmployee.styled.tsx'
-import {updateCurrentEmployee} from '../API/employee.tsx'
+import {updateUser} from '../Redux-Saga/ActionCreators/UpdateEmployee.ts'
 export default function UpdateUser({ formData, updateFormData,setEditUser}) {
 
-    const onchange = (event: KeyboardEvent) => {
+  const dispatch=useDispatch()
+  const onchange = (event: KeyboardEvent) => {
     const name = event.target.name;
     const value = event.target.value;
     updateFormData(oldState => {
@@ -15,7 +17,8 @@ export default function UpdateUser({ formData, updateFormData,setEditUser}) {
   const updateEmployee = (form: MouseEvent) => { 
     form.preventDefault();
     console.log(formData)
-    updateCurrentEmployee(formData);
+    console.log("dispaching acion");
+    dispatch(updateUser(formData))
     setEditUser(false);
   }
   return (

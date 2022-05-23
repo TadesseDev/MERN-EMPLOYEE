@@ -38,7 +38,7 @@ const deleteEmployee = (empId: String) => {
 
 export const updateCurrentEmployee = (user: Object) => {
   const empId = user._id;
-  fetch(updateUserURL, {
+  return fetch(updateUserURL, {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({empId,...user}),
