@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 import { createEmployee } from '../API/employee.tsx'
-import { Wrapper,UserForm,Inputs} from '../components/styles/main.styled.tsx'
+import { Wrapper,UserForm,Inputs} from '../components/AddEmployee.styled.tsx'
 export default function AddUser() {
   const [formData, updateFormData] = useState({
     firstName: '',
