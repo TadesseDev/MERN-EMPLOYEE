@@ -1,9 +1,15 @@
 const express = require('express');
 const route = express.Router();
+const employeeSchema = require('../models/employees')
 
 
-route.get('/list', (req, res) => {
-  res.send('getting employees');
+route.get('/list', async (req, res) => {
+  try {
+    const employees = await employeeSchema.find();
+    res.json(employees);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 route.put('/update', (req, res) => {
@@ -11,6 +17,7 @@ route.put('/update', (req, res) => {
 });
 
 route.post('/create', (req, res) => {
+  console.log(req.body)
   res.send('creating new employee');
 });
 
