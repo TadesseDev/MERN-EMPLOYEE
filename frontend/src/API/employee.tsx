@@ -1,6 +1,7 @@
 const createURL = `http://localhost:4000/employees/create`;
 const getUsersURL = `http://localhost:4000/employees/list`
 const deleteURL = `http://localhost:4000/employees/delete`
+const updateUserURL=`http://localhost:4000/employees/update`
 const createEmployee = (user: object) => {
   fetch(createURL, {
     method: 'post',
@@ -26,12 +27,24 @@ const getEmployees = () => {
 
 const deleteEmployee = (empId: String) => {
   console.log(empId);
-  fetch(`${deleteURL}?id=${empId}`, {
+  fetch(deleteURL, {
     method: 'delete',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({empId}),
   })
     .then(response => console.log(response));
 
+}
+
+export const updateCurrentEmployee = (user: Object) => {
+  const empId = user._id;
+  fetch(updateUserURL, {
+    method: 'put',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({empId,...user}),
+  })
+    .then(response => { 
+      console.log(response);
+    });
 }
 export { createEmployee, getEmployees, deleteEmployee }

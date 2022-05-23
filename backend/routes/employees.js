@@ -12,9 +12,20 @@ route.get('/list', async (req, res) => {
   }
 });
 
-route.put('/update', getEmployeeMiddleWare, (req, res) => {
-  req.employee = { ...req.employee, ...req.body };
-  res.send('updating user data new employee');
+route.put('/update', getEmployeeMiddleWare, async (req, res) => {
+  delete req.body.empId;
+  // console.log("now employee is", req.body);
+  // console.log('updating user data new employee', req.employee);
+  req.employee.firstName = req.body.firstName;
+  req.employee.birthDate = req.body.birthDate;
+  req.employee.salary = req.body.salary;
+  req.employee.sex = req.body.sex;
+  try {
+    const updateEmployee = await req.employee.save();
+    res.status(201).json({ message: "Successfully updated", ...updateEmployee });
+  } catch (error) {
+    res.status(500).json({ message: "fail to update user data", ...error });
+  }
 });
 
 route.post('/create', (req, res) => {

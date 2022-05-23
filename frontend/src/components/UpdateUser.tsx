@@ -1,9 +1,9 @@
 import React from 'react'
 import {EmployeeEdit} from '../components/ListEmployee.styled.tsx'
-
+import {updateCurrentEmployee} from '../API/employee.tsx'
 export default function UpdateUser({ formData, updateFormData,setEditUser}) {
 
-    const onchange = (event) => {
+    const onchange = (event: KeyboardEvent) => {
     const name = event.target.name;
     const value = event.target.value;
     updateFormData(oldState => {
@@ -12,9 +12,11 @@ export default function UpdateUser({ formData, updateFormData,setEditUser}) {
     });
     }
   
-  const updateEmployee = (form) => { 
+  const updateEmployee = (form: MouseEvent) => { 
     form.preventDefault();
-    // updateCurentEmployee(formData)
+    console.log(formData)
+    updateCurrentEmployee(formData);
+    setEditUser(false);
   }
   return (
     <EmployeeEdit
