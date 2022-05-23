@@ -3,7 +3,7 @@ const connectDB = require('./models/db')
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-app.listen(3001, () => console.log('server running'));
+app.listen(process.env.PORT, () => console.log('server running'));
 
 app.use(express.urlencoded())
 app.use(express.json())
