@@ -5,8 +5,9 @@ export const getUsers = () =>
   ({ type: GET_LIST_OF_USER, payload: [] });
 
 const appReducer = (state = [], action: Object) => { 
+  console.log("running action",action);
   switch (action.type) { 
-    case GET_LIST_OF_USER:
+    case `${GET_LIST_OF_USER}_READY`:
       return action.payload;
     default:
       return state;
