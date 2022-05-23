@@ -1,7 +1,9 @@
-import React, { useState} from 'react'
-import { createEmployee } from '../API/employee.tsx'
+import React, { useState } from 'react'
+import {useDispatch} from 'react-redux'
+import { addNewUser } from '../Redux-Saga/ActionCreators/AddEmployee.ts'
 import { Wrapper,UserForm,Inputs} from '../components/AddEmployee.styled.tsx'
 export default function AddUser() {
+  const dispatch=useDispatch()
   const [formData, updateFormData] = useState({
     firstName: '',
     birthDate: '',
@@ -20,7 +22,7 @@ export default function AddUser() {
   
   const addEmployee = (form) => { 
     form.preventDefault();
-    createEmployee(formData)
+    dispatch(addNewUser(formData))
   }
   return (
     <Wrapper>

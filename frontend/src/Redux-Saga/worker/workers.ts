@@ -1,4 +1,4 @@
-import { getEmployees,deleteEmployee } from '../../API/employee.tsx'
+import { getEmployees,deleteEmployee,createEmployee } from '../../API/employee.tsx'
 import { put } from 'redux-saga/effects'
 function* updateEmployees(action: Object) {
   const data = yield (getEmployees())
@@ -11,5 +11,10 @@ function* removeEmployee(action: Object) {
   console.log("passed action is", action);
   yield put({ type: `${action.type}_READY`, payload: action.payload });
 }
-
-export { updateEmployees, removeEmployee }
+function* addNewUSer(action: Object) {
+  const data = yield (createEmployee(action.payload))
+  console.log("yield data is", data);
+  console.log("passed action is", action);
+  yield put({ type: `${action.type}_READY`, payload: action.payload });
+}
+export { updateEmployees, removeEmployee,addNewUSer }

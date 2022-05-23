@@ -1,3 +1,4 @@
+import addUserReducer from './AddEmployee.ts'
 export const DELETE_USER = "DELETE_USER_FROM_DATABASE";
 export const deleteUser = (empId) =>
   ({ type: DELETE_USER, payload: { empId } });
@@ -7,7 +8,7 @@ const deleteReducer = (state = [], action: Object) => {
     case `${DELETE_USER}_READY`:
       return [...state.filter(emp => emp._id!==action.payload.empId)];
     default:
-      return state;
+      return addUserReducer(state,action);
   }
 }
 
