@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useDispatch} from 'react-redux'
-import { deleteUser } from '../Redux-Saga/ActionCreators/UpdateEmployee.ts'
+import { deleteUser } from '../Redux-Saga/ActionCreators/DeleteEmployee.ts'
 import { Employee } from '../components/ListEmployee.styled.tsx'
 import UpdateUser from '../components/UpdateEmployee.tsx'
 export default function ListUser({ employees }) {

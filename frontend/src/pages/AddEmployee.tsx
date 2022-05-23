@@ -23,6 +23,7 @@ export default function AddUser() {
   const addEmployee = (form) => { 
     form.preventDefault();
     dispatch(addNewUser(formData))
+
   }
   return (
     <Wrapper>
@@ -33,18 +34,21 @@ export default function AddUser() {
       <label htmlFor="firstName">your name</label>
       <Inputs type="text" name="firstName" id="firstName" 
         onChange={onchange}
-        value={ formData.firstName}/>
+          value={formData.firstName}
+        required/>
 
       <label htmlFor="birthDate">date of birth</label>
       <Inputs type="date" name="birthDate"
         id="birthDate"
         onChange={onchange}
-        value={ formData.birthDate} />
+          value={formData.birthDate}
+        required/>
 
         <div>
                 <label htmlFor="m">Male</label>
       <input type="radio" name="sex" value="m" id="m"  
-        onChange={onchange}/>
+            onChange={onchange}
+          />
 
       <label htmlFor="f">Female</label>
       <input type="radio" name="sex" value="f" id="f"   

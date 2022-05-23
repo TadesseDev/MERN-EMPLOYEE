@@ -1,4 +1,4 @@
-import deleteReducer from './UpdateEmployee.ts'
+import deleteReducer from './DeleteEmployee.ts'
 export const GET_LIST_OF_USER =
   "GET_ALL_EMPLOYEES_FROM_DB";
 
