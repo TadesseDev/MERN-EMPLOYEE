@@ -31,8 +31,20 @@ route.post('/create', (req, res) => {
   }
 });
 
-route.delete('/delete', (req, res) => {
-  res.send('deleting employee employee');
+route.delete('/delete', async (req, res) => {
+  const { empId } = req.body;
+  console.log(empId);
+  try {
+    const employee = employeeSchema.findById(empId);
+    if (!employee)
+      throw Error('cannot find user');
+    await employee.remove();
+    // console.log(employee);
+    res.status(201).json({ message: "deleted successfully" });
+  } catch (error) {
+    console.log('error deleting')
+    res.send('deleting employee fail');
+  }
 });
 
 module.exports = route;

@@ -27,7 +27,9 @@ const getEmployees = () => {
 const deleteEmployee = (empId: String) => {
   console.log(empId);
   fetch(`${deleteURL}?id=${empId}`, {
-    method: 'delete'
+    method: 'delete',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({empId}),
   })
     .then(response => console.log(response));
 

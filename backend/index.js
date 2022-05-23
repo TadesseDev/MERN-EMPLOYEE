@@ -13,6 +13,8 @@ connectDB();
 const db = mongoose.connection
 db.on('error', err => console.log(err));
 db.once('open', () => console.log('connection success'));
+
+
 app.get('/', (req, res) => {
   res.send('hitting the root server');
 });
