@@ -17,7 +17,10 @@ route.put('/update', (req, res) => {
 });
 
 route.post('/create', (req, res) => {
-  console.log(req.body)
+  console.log("body is", req.body)
+  const employee = new employeeSchema({
+
+  });
   res.send('creating new employee');
 });
 
