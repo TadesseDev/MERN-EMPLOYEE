@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
-import {createEmployee} from '../API/employee.tsx'
+import { createEmployee } from '../API/employee.tsx'
+import { Wrapper,UserForm,Inputs} from '../components/styles/main.styled.tsx'
 export default function AddUser() {
   const [formData, updateFormData] = useState({
     firstName: '',
@@ -22,34 +23,38 @@ export default function AddUser() {
     createEmployee(formData)
   }
   return (
-    <form
+    <Wrapper>
+    <UserForm
       action="http://localhost:4000/employees/create"
       method="POST" className=""
       onSubmit={addEmployee}>
       <label htmlFor="firstName">your name</label>
-      <input type="text" name="firstName" id="firstName" 
+      <Inputs type="text" name="firstName" id="firstName" 
         onChange={onchange}
         value={ formData.firstName}/>
 
       <label htmlFor="birthDate">date of birth</label>
-      <input type="date" name="birthDate"
+      <Inputs type="date" name="birthDate"
         id="birthDate"
         onChange={onchange}
         value={ formData.birthDate} />
 
-      <label htmlFor="m">Male</label>
+        <div>
+                <label htmlFor="m">Male</label>
       <input type="radio" name="sex" value="m" id="m"  
         onChange={onchange}/>
 
       <label htmlFor="f">Female</label>
       <input type="radio" name="sex" value="f" id="f"   
         onChange={onchange}/>
+</div>
 
       <label htmlFor="salary">salary</label>
-      <input type="number" name="salary" id="salary" 
+      <Inputs type="number" name="salary" id="salary" 
         onChange={onchange}
         value={ formData.salary}/>
       <button type="submit">Add Employee</button>
-    </form>
+    </UserForm>
+    </Wrapper>
   )
 }

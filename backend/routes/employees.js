@@ -13,6 +13,7 @@ route.get('/list', async (req, res) => {
 });
 
 route.put('/update', getEmployeeMiddleWare, (req, res) => {
+  req.employee = { ...req.employee, ...req.body };
   res.send('updating user data new employee');
 });
 
