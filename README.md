@@ -1,4 +1,4 @@
-# Your daily weather
+# Full stack application as part of addissoft test
 
 > A full stack MERN App.
 
