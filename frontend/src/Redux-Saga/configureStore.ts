@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import logger from 'redux-logger';
-import appReducer from './pages/App.tsx'
+import appReducer from './pages/App.ts'
 import createSagaMiddleware from 'redux-saga'
-import actionRunner from './runner/Runner.tsx'
+import actionRunner from './runner/Runner.ts'
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({
   employees: appReducer,
