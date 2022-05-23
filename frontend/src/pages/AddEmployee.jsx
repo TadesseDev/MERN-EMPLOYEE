@@ -4,8 +4,8 @@ export default function AddUser() {
   const [formData, updateFormData] = useState({
     firstName: '',
     birthDate: '',
+    salary: 0,
     sex: '',
-    salary: 0
   });
 
     const onchange = (event) => {

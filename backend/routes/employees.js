@@ -19,9 +19,16 @@ route.put('/update', (req, res) => {
 route.post('/create', (req, res) => {
   console.log("body is", req.body)
   const employee = new employeeSchema({
-
+    ...req.body
   });
-  res.send('creating new employee');
+  try {
+    const newEmployee = employee.save();
+    console.log('saved');
+    res.status(201).json(newEmployee);
+  } catch (error) {
+    console.log("fail to save", error);
+    res.status(400).json({ message: error.message });
+  }
 });
 
 route.delete('/delete', (req, res) => {
