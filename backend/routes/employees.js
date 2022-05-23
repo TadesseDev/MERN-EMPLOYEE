@@ -14,8 +14,6 @@ route.get('/list', async (req, res) => {
 
 route.put('/update', getEmployeeMiddleWare, async (req, res) => {
   delete req.body.empId;
-  // console.log("now employee is", req.body);
-  // console.log('updating user data new employee', req.employee);
   req.employee.firstName = req.body.firstName;
   req.employee.birthDate = req.body.birthDate;
   req.employee.salary = req.body.salary;

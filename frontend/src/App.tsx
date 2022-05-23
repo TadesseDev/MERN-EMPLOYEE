@@ -1,17 +1,21 @@
-import React, { useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import AddUser from './pages/AddEmployee.tsx'
 import ListUser from './pages/ListEmployee.tsx';
 import { getEmployees } from './API/employee.tsx';
+import {useDispatch,useSelector} from 'react-redux'
+import {getUsers} from './Redux-Saga/pages/App.tsx'
 function App() {
-  const [employees, updateEmployees] = useState([]);
-
+  // const [employees, updateEmployees] = useState([]);
+  const dispatch = useDispatch();
+  const employees = useSelector((store: Object) => store.employees);
   useEffect(() => { 
-    const user = getEmployees();
-    user.then( data=>updateEmployees(data))
+    dispatch(getUsers());
+    // const user = getEmployees();
+    // user.then( data=>updateEmployees(data))
   },[]);
 
   return (
-    <div className="App">
+    <div>
       <AddUser />
       <ListUser employees={ employees}/>
     </div>
