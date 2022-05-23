@@ -12,8 +12,8 @@ route.get('/list', async (req, res) => {
   }
 });
 
-route.put('/update', (req, res) => {
-  res.send('creating new employee');
+route.put('/update', getEmployeeMiddleWare, (req, res) => {
+  res.send('updating user data new employee');
 });
 
 route.post('/create', (req, res) => {
@@ -31,20 +31,26 @@ route.post('/create', (req, res) => {
   }
 });
 
-route.delete('/delete', async (req, res) => {
-  const { empId } = req.body;
-  console.log(empId);
+route.delete('/delete', getEmployeeMiddleWare, async (req, res) => {
   try {
-    const employee = employeeSchema.findById(empId);
-    if (!employee)
-      throw Error('cannot find user');
-    await employee.remove();
-    // console.log(employee);
+    await req.employee.deleteOne();
     res.status(201).json({ message: "deleted successfully" });
   } catch (error) {
     console.log('error deleting')
-    res.send('deleting employee fail');
   }
 });
+
+async function getEmployeeMiddleWare(req, res, next) {
+  const { empId } = req.body;
+  try {
+    const employee = await employeeSchema.findById(empId);
+    if (!employee)
+      throw Error('cannot find user');
+    req.employee = employee;
+    next();
+  } catch (error) {
+    res.status(500).send('deleting employee fail');
+  }
+}
 
 module.exports = route;
