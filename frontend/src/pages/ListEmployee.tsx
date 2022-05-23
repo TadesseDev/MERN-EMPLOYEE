@@ -1,8 +1,10 @@
-import React, { FormEvent, useState} from 'react';
-import { deleteEmployee } from '../API/employee.tsx'
+import React, { useState } from 'react';
+import {useDispatch} from 'react-redux'
+import { deleteUser } from '../Redux-Saga/ActionCreators/UpdateEmployee.ts'
 import { Employee } from '../components/ListEmployee.styled.tsx'
-import UpdateUser from '../components/UpdateUser.tsx'
+import UpdateUser from '../components/UpdateEmployee.tsx'
 export default function ListUser({ employees }) {
+  const dispatch = useDispatch();
   const [editUser, setEditUser] = useState(false);
     const [formData, updateFormData] = useState({
     firstName: '',
@@ -28,7 +30,7 @@ export default function ListUser({ employees }) {
             <span>{employee.birthDate}</span>
             <span>{employee.salary}</span>
             <span>{employee.sex}</span>
-            <button onClick={ ()=>deleteEmployee(employee._id)}>Delete Employee</button>
+            <button onClick={ ()=>dispatch(deleteUser(employee._id))}>Delete Employee</button>
             <button onClick={ ()=>showUpdateBox(employee._id)}>updateUser</button>
           </Employee>
         </div>

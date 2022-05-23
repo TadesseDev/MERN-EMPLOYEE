@@ -1,17 +1,15 @@
-import { getEmployees } from '../../API/employee.tsx'
+import { getEmployees,deleteEmployee } from '../../API/employee.tsx'
 import { put } from 'redux-saga/effects'
-function* incrementAge(action) {
+function* updateEmployees(action: Object) {
   const data = yield (getEmployees())
-  console.log("yield data is", data);
-  console.log("passed action is", action);
-  yield put({ type: "GET_ALL_EMPLOYEES_FROM_DB_READY", payload: data });
+  yield put({ type: `${action.type}_READY`, payload: data });
 }
 
-function* decrementAge(action) {
-  const data = yield (getEmployees())
+function* removeEmployee(action: Object) {
+  const data = yield (deleteEmployee(action.payload.empId))
   console.log("yield data is", data);
   console.log("passed action is", action);
-  yield put({ type: "AGE_DOWN_MAKE", payload: data });
+  yield put({ type: `${action.type}_READY`, payload: action.payload });
 }
 
-export { incrementAge, decrementAge }
+export { updateEmployees, removeEmployee }
