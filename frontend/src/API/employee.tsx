@@ -1,5 +1,6 @@
 const createURL = `http://localhost:4000/employees/create`;
 const getUsersURL = `http://localhost:4000/employees/list`
+const deleteURL = `http://localhost:4000/employees/delete`
 const createEmployee = (user) => {
   fetch(createURL, {
     method: 'post',
@@ -11,9 +12,22 @@ const createEmployee = (user) => {
 }
 
 const getEmployees = () => {
-  fetch(getUsersURL)
+  return fetch(getUsersURL)
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(`fail to fetch :${error}`));
+    .then(data => {
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      console.error(`fail to fetch :${error}`);
+      return [];
+    });
 }
-export { createEmployee, getEmployees }
+
+const deleteEmployee = (empId) => {
+  fetch(`${deleteURL}?id=${empId
+    }`)
+    .then(response => console.log(response));
+
+}
+export { createEmployee, getEmployees, deleteEmployee }

@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import {createEmployee} from '../API/employee'
+import {createEmployee} from '../API/employee.tsx'
 export default function AddUser() {
   const [formData, updateFormData] = useState({
     firstName: '',
