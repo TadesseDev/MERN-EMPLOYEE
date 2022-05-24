@@ -9,8 +9,8 @@
 - React
 - Redux
 - Redux-saga
-- Redux
 - Express Js
+- Node JS
 - MongoDB
 - Mongoose
 
