@@ -26,7 +26,7 @@
 
 ## Live Demo
 
-#### [Coming soon] 😎
+#### [GO live](https://employee-addissoft.netlify.app/) 😎
 
 ## Getting Started
 
