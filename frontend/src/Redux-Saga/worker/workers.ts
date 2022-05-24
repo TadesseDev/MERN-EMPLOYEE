@@ -10,8 +10,8 @@ function* removeEmployee(action: Object) {
   yield put({ type: `${action.type}_READY`, payload: action.payload });
 }
 function* addNewUSer(action: Object) {
-  const data = yield (createEmployee(action.payload))
-  yield put({ type: `${action.type}_READY`, payload: action.payload });
+  const data = yield (createEmployee(action.payload));
+  yield put({ type: `${action.type}_READY`, payload: data });
 }
 
 function* updateUserData(action: Object) {

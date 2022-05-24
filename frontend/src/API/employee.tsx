@@ -3,13 +3,13 @@ const getUsersURL = `http://localhost:4000/employees/list`
 const deleteURL = `http://localhost:4000/employees/delete`
 const updateUserURL=`http://localhost:4000/employees/update`
 const createEmployee = (user: object) => {
-  fetch(createURL, {
+  return fetch(createURL, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(user)
-  }).then(response => console.log(response))
-    .catch(error => console.error(`fail to add user :${error}`))
-  console.log(JSON.stringify(user));
+  }).then(response => response.json())
+    .then(data => data)
+    .catch(error => console.error(`fail to add user :${error}`));
 }
 
 const getEmployees = () => {

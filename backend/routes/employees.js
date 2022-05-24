@@ -34,7 +34,7 @@ route.post('/create', (req, res) => {
   try {
     const newEmployee = employee.save();
     console.log('saved');
-    res.status(201).json(newEmployee);
+    res.status(201).json(employee);
   } catch (error) {
     console.log("fail to save", error);
     res.status(400).json({ message: error.message });
