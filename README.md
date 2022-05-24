@@ -27,7 +27,7 @@
 ## Live Demo
 
 #### [GO live](https://employee-addissoft.netlify.app/) 😎
-#### [API-Server](https://simple-user-manager.herokuapp.com/) 😎
+#### [API-Server](https://employee-management-addissoft.herokuapp.com/) 😎
 
 ## Getting Started
 
