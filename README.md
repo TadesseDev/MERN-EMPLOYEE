@@ -9,8 +9,8 @@
 - React
 - Redux
 - Redux-saga
-- Redux
 - Express Js
+- Node JS
 - MongoDB
 - Mongoose
 
@@ -26,7 +26,8 @@
 
 ## Live Demo
 
-#### [Coming soon] 😎
+#### [GO live](https://employee-addissoft.netlify.app/) 😎
+#### [API-Server](https://employee-management-addissoft.herokuapp.com/) 😎
 
 ## Getting Started
 
