@@ -1,5 +1,5 @@
 import {createURL,  getUsersURL,  deleteURL,  updateUserURL} from '../Global/APIEndPoints.ts';
-
+import {EmployeeType} from '../Global/types.ts'
 const createEmployee = async (user: object) => {
   try {
     const response = await fetch(createURL, {
@@ -37,7 +37,7 @@ const deleteEmployee = (empId: String) => {
 
 }
 
-export const updateCurrentEmployee = async (user: Object) => {
+export const updateCurrentEmployee = async (user: EmployeeType) => {
   const empId = user._id;
   const response = await fetch(updateUserURL, {
     method: 'put',
