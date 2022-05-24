@@ -35,6 +35,8 @@ export default function AddUser() {
       <Inputs type="text" name="firstName" id="firstName" 
         onChange={onchange}
           value={formData.firstName}
+          minLength="3"
+          maxLength="50"
         required/>
 
       <label htmlFor="birthDate">date of birth</label>
@@ -56,7 +58,9 @@ export default function AddUser() {
 </div>
 
       <label htmlFor="salary">salary</label>
-      <Inputs type="number" name="salary" id="salary" 
+        <Inputs type="number" name="salary" id="salary"
+          min="0"
+          max="999999999"
         onChange={onchange}
         value={ formData.salary}/>
       <button type="submit">Add Employee</button>
