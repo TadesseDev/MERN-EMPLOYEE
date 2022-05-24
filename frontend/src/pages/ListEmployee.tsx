@@ -18,6 +18,7 @@ export default function ListUser({ employees }) {
     const newFormData = employees.filter((employee: FormEmployeeType)=> {
       if (employee._id === id)
         return employee;
+      return false;
     })[0];
     updateFormData(newFormData);
     console.log(formData)

@@ -3,15 +3,16 @@ import {useDispatch} from 'react-redux'
 import { addNewUser } from '../Redux-Saga/ActionCreators/AddEmployee.ts'
 import { Wrapper,UserForm,Inputs} from '../components/AddEmployee.styled.tsx'
 export default function AddUser() {
-  const dispatch=useDispatch()
-  const [formData, updateFormData] = useState({
+  const dispatch = useDispatch()
+  const initialFormData={
     firstName: '',
     birthDate: '',
     salary: 0,
     sex: '',
-  });
+  }
+  const [formData, updateFormData] = useState(initialFormData);
 
-    const onchange = (event) => {
+    const onchange = (event: KeyboardEvent) => {
     const name = event.target.name;
     const value = event.target.value;
     updateFormData(oldState => {
@@ -23,7 +24,7 @@ export default function AddUser() {
   const addEmployee = (form) => { 
     form.preventDefault();
     dispatch(addNewUser(formData))
-
+ updateFormData(initialFormData );
   }
   return (
     <Wrapper>
