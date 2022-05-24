@@ -1,7 +1,7 @@
-const createURL = `http://localhost:4000/employees/create`;
-const getUsersURL = `http://localhost:4000/employees/list`
-const deleteURL = `http://localhost:4000/employees/delete`
-const updateUserURL=`http://localhost:4000/employees/update`
+const createURL = `https://simple-user-manager.herokuapp.com/employees/create`;
+const getUsersURL = `https://simple-user-manager.herokuapp.com/employees/list`
+const deleteURL = `https://simple-user-manager.herokuapp.com/employees/delete`
+const updateUserURL=`https://simple-user-manager.herokuapp.com/employees/update`
 const createEmployee = (user: object) => {
   return fetch(createURL, {
     method: 'post',
