@@ -1,5 +1,5 @@
-import {createURL,  getUsersURL,  deleteURL,  updateUserURL} from '../Global/APIEndPoints.ts';
-import {EmployeeType} from '../Global/types.ts'
+import {createURL,  getUsersURL,  deleteURL,  updateUserURL} from '../Global/APIEndPoints';
+import {EmployeeType} from '../Global/types'
 const createEmployee = async (user: object) => {
   try {
     const response = await fetch(createURL, {

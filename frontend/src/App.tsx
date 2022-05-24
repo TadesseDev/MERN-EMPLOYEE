@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import {StoreType} from './Global/types'
-import AddUser from './pages/AddEmployee.tsx'
-import ListUser from './pages/ListEmployee.tsx';
+import AddUser from './pages/AddEmployee'
+import ListUser from './pages/ListEmployee';
 import {useDispatch,useSelector} from 'react-redux'
-import { getUsers } from './Redux-Saga/ActionCreators/App.ts'
+import { getUsers } from './Redux-Saga/ActionCreators/App'
 
 const App: React.FC=()=>{
   const dispatch = useDispatch();

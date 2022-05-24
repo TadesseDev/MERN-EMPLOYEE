@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {useDispatch} from 'react-redux'
-import { addNewUser } from '../Redux-Saga/ActionCreators/AddEmployee.ts'
-import { Wrapper,UserForm,Inputs} from '../components/AddEmployee.styled.tsx'
+import { addNewUser } from '../Redux-Saga/ActionCreators/AddEmployee'
+import { Wrapper,UserForm,Inputs} from '../components/AddEmployee.styled'
 export default function AddUser() {
   const dispatch = useDispatch()
   const initialFormData={

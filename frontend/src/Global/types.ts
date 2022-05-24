@@ -1,4 +1,5 @@
-export type EmployeeType = { type: String, payload: { empId: String } };
+export type EmployeeType = { type: String, payload: { empId: String },
+    _id: String, };
 export type FormEmployeeType = {
     _id: String,
     firstName: String,
