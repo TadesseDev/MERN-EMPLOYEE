@@ -4,7 +4,7 @@ import ListUser from './pages/ListEmployee.tsx';
 import {useDispatch,useSelector} from 'react-redux'
 import { getUsers } from './Redux-Saga/ActionCreators/App.ts'
 
-function App() {
+const App: React.FC=()=>{
   const dispatch = useDispatch();
   const employees = useSelector((store: Object) => store.employees);
   

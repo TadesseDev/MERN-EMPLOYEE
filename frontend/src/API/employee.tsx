@@ -1,7 +1,7 @@
-const createURL = `https://simple-user-manager.herokuapp.com/employees/create`;
-const getUsersURL = `https://simple-user-manager.herokuapp.com/employees/list`
-const deleteURL = `https://simple-user-manager.herokuapp.com/employees/delete`
-const updateUserURL=`https://simple-user-manager.herokuapp.com/employees/update`
+const createURL = `https://employee-management-addissoft.herokuapp.com/employees/create`;
+const getUsersURL = `https://employee-management-addissoft.herokuapp.com/employees/list`
+const deleteURL = `https://employee-management-addissoft.herokuapp.com/employees/delete`
+const updateUserURL=`https://employee-management-addissoft.herokuapp.com/employees/update`
 const createEmployee = (user: object) => {
   return fetch(createURL, {
     method: 'post',
