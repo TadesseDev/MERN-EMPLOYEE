@@ -12,7 +12,7 @@ export default function AddUser() {
   }
   const [formData, updateFormData] = useState(initialFormData);
 
-    const onchange = (event: KeyboardEvent) => {
+    const onchange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     updateFormData(oldState => {
