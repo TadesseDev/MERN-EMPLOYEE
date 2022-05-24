@@ -1,0 +1,1 @@
+export type EmployeeType = { type: String, payload: { empId: String } }

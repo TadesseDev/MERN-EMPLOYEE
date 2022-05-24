@@ -1,28 +1,29 @@
-const createURL = `https://employee-management-addissoft.herokuapp.com/employees/create`;
-const getUsersURL = `https://employee-management-addissoft.herokuapp.com/employees/list`
-const deleteURL = `https://employee-management-addissoft.herokuapp.com/employees/delete`
-const updateUserURL=`https://employee-management-addissoft.herokuapp.com/employees/update`
-const createEmployee = (user: object) => {
-  return fetch(createURL, {
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(user)
-  }).then(response => response.json())
-    .then(data => data)
-    .catch(error => console.error(`fail to add user :${error}`));
+import {createURL,  getUsersURL,  deleteURL,  updateUserURL} from '../Global/APIEndPoints.ts';
+
+const createEmployee = async (user: object) => {
+  try {
+    const response = await fetch(createURL, {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return console.error(`fail to add user :${error}`);
+  }
 }
 
-const getEmployees = () => {
-  return fetch(getUsersURL)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      return data;
-    })
-    .catch(error => {
-      console.error(`fail to fetch :${error}`);
-      return [];
-    });
+const getEmployees = async () => {
+  try {
+    const response = await fetch(getUsersURL);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(`fail to fetch :${error}`);
+    return [];
+  }
 }
 
 const deleteEmployee = (empId: String) => {
@@ -36,15 +37,13 @@ const deleteEmployee = (empId: String) => {
 
 }
 
-export const updateCurrentEmployee = (user: Object) => {
+export const updateCurrentEmployee = async (user: Object) => {
   const empId = user._id;
-  return fetch(updateUserURL, {
+  const response = await fetch(updateUserURL, {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({empId,...user}),
-  })
-    .then(response => { 
-      console.log(response);
-    });
+    body: JSON.stringify({ empId, ...user }),
+  });
+  console.log(response);
 }
 export { createEmployee, getEmployees, deleteEmployee }
