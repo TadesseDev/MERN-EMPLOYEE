@@ -1,4 +1,4 @@
-export const createURL = `https://localhost:4000/employees/create`;
-export const getUsersURL = `https://localhost:4000/employees/list`
-export const deleteURL = `https://localhost:4000/employees/delete`
-export const updateUserURL=`https://localhost:4000/employees/update`
+export const createURL = `https://employee-management-addissoft.herokuapp.com/employees/create`;
+export const getUsersURL = `https://employee-management-addissoft.herokuapp.com/employees/list`
+export const deleteURL = `https://employee-management-addissoft.herokuapp.com/employees/delete`
+export const updateUserURL=`https://employee-management-addissoft.herokuapp.com/employees/update`
