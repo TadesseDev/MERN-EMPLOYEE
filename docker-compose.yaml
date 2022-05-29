@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    container_name: backend_C
+    ports:
+      - 4000:4000
+    volumes:
+      - ./backend:/backend
+    environment:
+      MANGO_URI_LOCAL: mongodb://mdb:27017
+  frontend: 
+    build: ./frontend
+    container_name: frontend_C
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/frontend
+  mdb: 
+    image: mongo
+    container_name: mdb_C
+    ports:
+      - 27017:27017
+    volumes:
+      - database:/data/db
+volumes:
+  database:
