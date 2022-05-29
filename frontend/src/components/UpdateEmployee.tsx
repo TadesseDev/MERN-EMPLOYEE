@@ -1,13 +1,16 @@
 import React from 'react'
 import { useDispatch} from 'react-redux'
-import {EmployeeEdit} from '../components/ListEmployee.styled.tsx'
-import {updateUser} from '../Redux-Saga/ActionCreators/UpdateEmployee.ts'
-export default function UpdateUser({ formData, updateFormData,setEditUser}) {
+import {EmployeeEdit} from '../components/ListEmployee.styled'
+import { updateUser } from '../Redux-Saga/ActionCreators/UpdateEmployee'
+export default function UpdateUser(
+  { formData, updateFormData, setEditUser }:
+    { formData: Object, updateFormData: typeof React.useState,setEditUser: typeof React.useState}
+) {
 
   const dispatch=useDispatch()
-  const onchange = (event: KeyboardEvent) => {
-    const name = event.target.name;
-    const value = event.target.value;
+  const onchange = (event: React.MouseEvent) => {
+    const name = (event.target as HTMLInputElement).name;;
+    const value = (event.target as HTMLInputElement).value;
     updateFormData(oldState => {
       oldState[name] = value;
       return ({ ...oldState });

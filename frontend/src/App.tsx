@@ -10,6 +10,7 @@ const App: React.FC=()=>{
   const employees = useSelector((store: StoreType) => store.employees);
   
   useEffect(() => { 
+    console.log("fetching data");
     dispatch(getUsers());
   }, [dispatch]);
   

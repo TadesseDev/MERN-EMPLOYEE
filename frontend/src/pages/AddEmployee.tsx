@@ -29,7 +29,7 @@ export default function AddUser() {
   return (
     <Wrapper>
     <UserForm
-      action="http://localhost:4000/employees/create"
+      action=""
       method="POST" className=""
       onSubmit={addEmployee}>
       <label htmlFor="firstName">your name</label>
