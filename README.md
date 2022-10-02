@@ -1,4 +1,4 @@
-# Full stack application as part of addissoft test
+# Full stack Employee information managment system.
 
 > A full stack MERN App.
 
