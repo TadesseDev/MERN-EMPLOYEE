@@ -17,10 +17,10 @@
 ## Screenshots
 
 ### Mobile
-
-#### Coming soon
+![mobile](https://user-images.githubusercontent.com/69077061/194605895-26f65e2e-bed4-469a-bc1e-0ac39495c74d.PNG)
 
 ### Desktop
+![Capture](https://user-images.githubusercontent.com/69077061/194605995-8c556dcf-d8ba-4301-91a7-10c92a2102fb.PNG)
 
 #### Coming soon
 
